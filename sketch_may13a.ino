@@ -17,7 +17,6 @@ void setup() {
 }
 
 void loop() {
-  // Replace with real humidity and temperature if needed
   uint16_t srawVoc = mySensor.getVOCindex();
   Serial.println(srawVoc);  // Send to Java
   delay(1000);
