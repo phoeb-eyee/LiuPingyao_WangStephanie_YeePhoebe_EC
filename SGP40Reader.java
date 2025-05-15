@@ -15,7 +15,7 @@ public class SGP40Reader {
                 System.out.println("Port cu.usbmodem found.");
                 arduinoPort = port;
                 break;
-            }6
+            }
         }
 
         if (arduinoPort == null) {
@@ -42,13 +42,13 @@ public class SGP40Reader {
                     int value = Integer.parseInt(line);
                     String result = "UNKNOWN";
                     if (value >= 500) {
-                        result = "VERY HIGH VOC - UNHEALTHY";
+                        result = "VERY HIGH VOC - VERY HIGH SEIZURE RISK. Seek medical help if symptoms occur within the next 60 minutes (e.g., dizziness, nausea, light sensitivity).";
                     } else if (value >= 300) {
-                        result = "HIGH VOC - INDOOR AIR POLLUTION DETECTED";
+                        result = "HIGH VOC - HIGH SEIZURE RISK. Seek medical help if symptoms occur within the next 60 minutes.";
                     } else if (value >= 100) {
-                        result = "MODERATE VOC - TYPICAL INDOOR AIR";
+                        result = "MODERATE VOC - LOW SEIZURE RISK";
                     } else if (value > 0) {
-                        result = "LOW VOC - CLEAN AIR";
+                        result = "LOW VOC - NO SEIZURE RISK";
                     } else {
                         result = "ERROR IN DETECTION";
                     }
